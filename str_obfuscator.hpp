@@ -31,7 +31,7 @@ class cryptor {
 public:
 	template<typename T, std::size_t S>
 	class string_encryptor {
-		static constexpr std::size_t max_value = 0xffffffff >> ((sizeof(std::size_t) - sizeof(T)) << 3);
+		static constexpr std::size_t max_value = std::numeric_limits<std::make_unsigned_t<T>>::max();
 	public:
 		using value_type = T;
 
